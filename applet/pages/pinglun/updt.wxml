@@ -1,0 +1,8 @@
+<van-nav-bar title="评论添加" left-text="返回" safe-area-inset-top="{{ false }}" left-arrow bind:click-left="goBack"> </van-nav-bar>
+
+<van-cell-group>
+    <van-field type="text" label="评分" placeholder="输入评分" value="{{ form.pingfen }}" bindinput="onInput" data-name="form.pingfen" />
+    <van-field type="textarea" autosize placeholder="请输入评论内容..." value="{{ form.pinglunneirong }}" data-name="form.pinglunneirong" bindinput="onInput"></van-field>
+</van-cell-group>
+
+<van-button type="primary" bindclick="submit" block loading="{{ loading }}" loading-text="发布中">发布</van-button>

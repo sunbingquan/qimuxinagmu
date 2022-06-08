@@ -1,0 +1,65 @@
+.info-wrapper {
+  border-bottom: 4rpx solid #ebedf0;
+}
+.info-wrapper .container1 {
+  padding: 30rpx;
+}
+.info-wrapper .title {
+  padding: 20rpx;
+  border-left: 6rpx solid red;
+  font-size: 46rpx;
+  font-weight: 500;
+}
+.info-wrapper .time {
+  padding-left: 20rpx;
+  font-size: 26rpx;
+  color: #7a7e83;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.commit-content .commit-btn {
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  align-items: center;
+}
+.commit-info {
+  display: flex;
+  padding: 10rpx;
+}
+.commit-user-headimg {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 80rpx;
+  margin-right: 20rpx;
+}
+.commit-user-headimg.radius .user-img {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.commit-user-content {
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+.commit-user-nickname {
+  color: #700000;
+  margin-bottom: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.commit-user-nickname.not-time {
+  padding-top: 20rpx;
+}
+.commit-user-time {
+  color: #999;
+  margin-bottom: 20rpx;
+}
+.commit-user-not-time {
+  height: 30rpx;
+}
+.commit-line-block {
+  height: 10rpx;
+  background: #f2f2f2;
+}

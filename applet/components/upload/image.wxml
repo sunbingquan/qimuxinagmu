@@ -1,0 +1,6 @@
+<!--components/image/upload-images.wxml-->
+
+<view style="padding: 30rpx">
+    <view style="font-size: 36rpx; padding: 30rpx 20rpx">上传一张图片</view>
+    <van-uploader file-list="{{ fileList }}" accept="image" multiple="{{ false }}" bind:after-read="afterRead" max-count="1" />
+</view>

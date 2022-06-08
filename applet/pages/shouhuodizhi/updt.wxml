@@ -1,0 +1,9 @@
+<van-nav-bar title="收货地址添加" left-text="返回" safe-area-inset-top="{{ false }}" left-arrow bind:click-left="goBack"> </van-nav-bar>
+
+<van-cell-group>
+    <van-field type="text" label="收货人" placeholder="输入收货人" value="{{ form.shouhuoren }}" bindinput="onInput" data-name="form.shouhuoren" />
+    <van-field type="text" label="联系电话" placeholder="输入联系电话" value="{{ form.lianxidianhua }}" bindinput="onInput" data-name="form.lianxidianhua" />
+    <van-field type="text" label="详细地址" placeholder="输入详细地址" value="{{ form.xiangxidizhi }}" bindinput="onInput" data-name="form.xiangxidizhi" />
+</van-cell-group>
+
+<van-button type="primary" bindclick="submit" block loading="{{ loading }}" loading-text="发布中">发布</van-button>

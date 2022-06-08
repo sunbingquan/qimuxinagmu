@@ -1,0 +1,16 @@
+<van-cell-group>
+    <van-field type="text" label="昵称" placeholder="输入昵称" value="{{ form.nickName }}" bindinput="onInput" data-name="form.nickName" />
+    <e-upload-image value="{{ form.avatarUrl }}" data-name="form.avatarUrl" bindinput="onInput"></e-upload-image>
+    <van-field type="text" label="姓名" placeholder="输入姓名" value="{{ form.xingming }}" bindinput="onInput" data-name="form.xingming" />
+    <e-select value="{{ form.xingbie }}" label="性别" data-name="form.xingbie" bindchange="onInput"
+        ><e-option value="男" label="男"></e-option>
+        <e-option value="女" label="女"></e-option>
+    </e-select>
+    <van-field type="number" label="年龄" placeholder="输入年龄" value="{{ form.nianling }}" bindinput="onInput" data-name="form.nianling" />
+    <van-field type="text" label="手机" placeholder="输入手机" value="{{ form.shouji }}" bindinput="onInput" data-name="form.shouji" />
+    <van-field type="text" label="邮箱" placeholder="输入邮箱" value="{{ form.youxiang }}" bindinput="onInput" data-name="form.youxiang" />
+    <van-field type="text" label="住址" placeholder="输入住址" value="{{ form.zhuzhi }}" bindinput="onInput" data-name="form.zhuzhi" />
+</van-cell-group>
+
+<van-button type="primary" bindclick="submit" block loading="{{ loading }}" loading-text="发布中">保存</van-button>
+<v-footer />

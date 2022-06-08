@@ -1,0 +1,37 @@
+<e-img src="{{ map.avatarUrl }}" pb="100"></e-img>
+
+<view>
+    <van-cell-group>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 昵称 </view>
+            <view style="color: #999999"> {{ map.nickName }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 姓名 </view>
+            <view style="color: #999999"> {{ map.xingming }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 性别 </view>
+            <view style="color: #999999"> {{ map.xingbie }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 年龄 </view>
+            <view style="color: #999999"> {{ map.nianling }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 手机 </view>
+            <view style="color: #999999"> {{ map.shouji }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 邮箱 </view>
+            <view style="color: #999999"> {{ map.youxiang }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 住址 </view>
+            <view style="color: #999999"> {{ map.zhuzhi }} </view>
+        </van-cell>
+    
+    </van-cell-group>
+    <van-goods-action-button url="/pages/wxuser/updt?id= {{ map.id }}" type="primary" text="编辑资料" />
+</view>
+<v-footer />

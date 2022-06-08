@@ -1,0 +1,19 @@
+.info-wrapper {
+  border-bottom: 4rpx solid #ebedf0;
+}
+.info-wrapper .container1 {
+  padding: 30rpx;
+}
+.info-wrapper .title {
+  padding: 20rpx;
+  border-left: 6rpx solid red;
+  font-size: 46rpx;
+  font-weight: 500;
+}
+.info-wrapper .time {
+  padding-left: 20rpx;
+  font-size: 26rpx;
+  color: #7a7e83;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}

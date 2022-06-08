@@ -1,0 +1,31 @@
+<van-dropdown-menu>
+    <van-dropdown-item value="{{ search.fenlei }}" bind:change="onSelectSearch" data-name="search.fenlei" options="{{ fenleiList }}" />
+    <van-dropdown-item value="{{ search.orderby }}" bind:change="onListOrderBy" options="{{ orderOptions }}" />
+</van-dropdown-menu>
+
+<van-search
+    value="{{ search.keyword }}"
+    placeholder="请输入关键字..."
+    shape="round"
+    input-align="center"
+    bind:change="onInput"
+    data-name="search.keyword"
+    bind:search="onSearchxinwenxinxi"
+>
+</van-search>
+
+<view>
+    <view class="e-card-list" wx:for="{{ lists }}" wx:for-item="v">
+        <view class="flex-grow0 flex-shrink0 image" style="width: 234rpx">
+            <e-img src="{{ v.tupian }}" pb="100"></e-img>
+        </view>
+        <view class="e-card-info flex-grow1 flex-shrink1">
+            <navigator class="title" url="/pages/xinwenxinxi/detail?id={{ v.id }}"> {{ v.biaoti }} </navigator>
+            <navigator class="description" url="/pages/xinwenxinxi/detail?id={{ v.id }}"> <rich-text nodes="{{ v.neirong }}"></rich-text> </navigator>
+            <view class="time flex-between">
+                <view> {{ v.addtime }} </view>
+            </view>
+        </view>
+    </view>
+</view>
+<v-footer />

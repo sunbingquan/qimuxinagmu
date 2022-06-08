@@ -1,0 +1,5 @@
+<van-nav-bar title="收藏添加" left-text="返回" safe-area-inset-top="{{ false }}" left-arrow bind:click-left="goBack"> </van-nav-bar>
+
+<van-cell-group> </van-cell-group>
+
+<van-button type="primary" bindclick="submit" block loading="{{ loading }}" loading-text="发布中">发布</van-button>

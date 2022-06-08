@@ -1,0 +1,31 @@
+<view class="gouwushop-list" wx:for="{{ dingdanshangpinlist }}" wx:for-item="v" wx:for-index="index">
+    <view class="gouwu-info">
+        <van-card price="{{ v.jiage }}" title="{{ v.mingcheng }}" thumb="{{ v.tupian[0] }}" num="x{{ v.shuliang }}" tag="{{ v.fenlei }}" desc="{{ v.pinpai }}"> </van-card>
+    </view>
+</view>
+
+<view wx:if="{{ lists.length > 0 }}">
+    <view class="alists-list" wx:for="{{ lists }}" wx:for-item="map">
+        <navigator url="/pages/dingdan/detail?id={{ map.id }}">
+            <view class="alists-info">
+                <view class="left title"> {{ map.dingdanhao }} </view>
+                <view class="right"> {{ map.zhuangtai }} </view>
+            </view>
+            <view class="alists-info">
+                <view class="left tdown"> {{ map.shouhuoren }} </view>
+                <view class="right rdown"> {{ map.xiangxidizhi }} </view>
+            </view>
+        </navigator>
+        <view class="alists-info alists-btn">
+            <view class="left tdown">
+              
+            </view>
+            <view class="right rdown" wx:if="{{ map.zhuangtai == '待付款' }}">
+                <van-button type="info" size="small" bindclick="goEdit" data-id="{{ map.id }}">编辑</van-button>
+                <van-button type="danger" size="small" bindclick="removeItem" data-id="{{ map.id }}">删除</van-button>
+            </view>
+        </view>
+    </view>
+</view>
+<van-empty wx:elif="{{ !loading }}" description="没有找到相关数据" />
+<v-footer />

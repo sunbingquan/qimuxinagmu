@@ -1,0 +1,25 @@
+<van-nav-bar title="订单添加" left-text="返回" safe-area-inset-top="{{ false }}" left-arrow bind:click-left="goBack"> </van-nav-bar>
+
+<van-cell-group>
+    <van-field type="text" label="订单号" placeholder="输入订单号" value="{{ form.dingdanhao }}" bindinput="onInput" data-name="form.dingdanhao" />
+
+    <van-field type="number" label="金额" placeholder="输入金额" value="{{ form.jine }}" bindinput="onInput" data-name="form.jine" />
+    <e-select-list
+        model="{{ form }}"
+        value="{{ form.shouhuoxinxi }}"
+        data-name="form.shouhuoxinxi"
+        bindinput="onInput"
+        module="shouhuodizhi"
+        select-update="shouhuoren,lianxidianhua,xiangxidizhi"
+        search-update=""
+    ></e-select-list>
+    <e-select value="{{ form.shouhuoxinxi }}" data-name="form.shouhuoxinxi" bind:change="changeUpdateshouhuoxinxi" label="选择收货信息">
+        <e-option wx:for="{{ shouhuodizhiList }}" value="{{ item.id }}" label="{{ item.shouhuoren }} {{ item.lianxidianhua }} {{ item.xiangxidizhi }}"></e-option>
+    </e-select>
+    <van-field type="text" label="收货人" placeholder="输入收货人" value="{{ form.shouhuoren }}" bindinput="onInput" data-name="form.shouhuoren" />
+    <van-field type="text" label="联系电话" placeholder="输入联系电话" value="{{ form.lianxidianhua }}" bindinput="onInput" data-name="form.lianxidianhua" />
+    <van-field type="text" label="详细地址" placeholder="输入详细地址" value="{{ form.xiangxidizhi }}" bindinput="onInput" data-name="form.xiangxidizhi" />
+    <van-field type="textarea" autosize placeholder="请输入备注..." value="{{ form.beizhu }}" data-name="form.beizhu" bindinput="onInput"></van-field>
+</van-cell-group>
+
+<van-button type="primary" bindclick="submit" block loading="{{ loading }}" loading-text="发布中">发布</van-button>

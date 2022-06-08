@@ -1,0 +1,93 @@
+.photo-list {
+  margin-bottom: 43rpx;
+}
+.photo-list .title {
+  padding: 30rpx 16rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #747474;
+}
+.photo-list .description {
+  font-size: 24rpx;
+  color: #9c9c9c;
+}
+.e-card-list {
+  border-bottom: 10rpx #f2f2f2 solid;
+  display: flex;
+  padding: 20rpx 0;
+}
+.e-card-list .image {
+  padding: 0 20rpx;
+}
+.e-card-info {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  padding-right: 16rpx;
+}
+.e-card-info .title {
+  font-size: 28rpx;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.e-card-info .description {
+  color: #999;
+  font-size: 24rpx;
+  margin-bottom: 10rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.e-card-list:last-child {
+  border-bottom: none;
+}
+.photo-list2 {
+  margin-top: 10rpx;
+  margin-bottom: 15rpx;
+  border: 1rpx solid rgb(238, 240, 236);
+  border-radius: 15rpx;
+}
+.photo-list2 .title {
+  padding: 13rpx 13rpx;
+  font-size: 23rpx;
+  font-weight: 600;
+  color: #d8521d;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.photo-list2 .description {
+  font-size: 24rpx;
+  color: #9c9c9c;
+}
+.scroll_box{
+  width: 100%;
+  height: 307rpx;
+  overflow: hidden;
+  padding: 10rpx;
+  background: #fff;
+  white-space: nowrap;
+  }
+  .scroll_box scroll-view{
+    height: 100%;
+    width: auto;
+    overflow:hidden;
+    margin-left: -10rpx;
+    margin-right: -10rpx;
+  }
+  .item_list{
+  width:33%;
+  height: 100%;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  display: inline-block;
+  }

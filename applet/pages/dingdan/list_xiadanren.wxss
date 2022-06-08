@@ -1,0 +1,41 @@
+.gouwushop-list {
+  display: flex;
+}
+.gouwushop-list .gouwu-select {
+  width: 40px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gouwushop-list .gouwu-info {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.alists-list {
+  border-bottom: 10px solid #dedede;
+}
+.alists-list .alists-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #dedede;
+  font-size: 13px;
+  color: #999;
+}
+.alists-list .alists-info .left {
+  font-size: 11px;
+}
+.alists-list .alists-info .title {
+  color: #414141;
+  font-size: 16px;
+}
+.alists-list .alists-info:last-child {
+  border-bottom: none;
+}
+.alists-list:last-child {
+  border-bottom: none;
+}

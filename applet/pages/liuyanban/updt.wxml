@@ -1,0 +1,7 @@
+<van-nav-bar title="留言板添加" left-text="返回" safe-area-inset-top="{{ false }}" left-arrow bind:click-left="goBack"> </van-nav-bar>
+
+<van-cell-group>
+    <van-field type="textarea" autosize placeholder="请输入回复内容..." value="{{ form.huifuneirong }}" data-name="form.huifuneirong" bindinput="onInput"></van-field>
+</van-cell-group>
+
+<van-button type="primary" bindclick="submit" block loading="{{ loading }}" loading-text="发布中">发布</van-button>

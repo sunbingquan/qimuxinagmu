@@ -1,0 +1,16 @@
+.gouwushop-list {
+  display: flex;
+}
+.gouwushop-list .gouwu-select {
+  width: 40px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gouwushop-list .gouwu-info {
+  flex-grow: 1;
+  flex-shrink: 1;
+}

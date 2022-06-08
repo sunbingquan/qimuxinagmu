@@ -1,0 +1,20 @@
+<view wx:if="{{ lists.length > 0 }}">
+    <view class="alists-list" wx:for="{{ lists }}" wx:for-item="map">
+        <navigator url="/pages/jiaju/detail?id={{ map.xwid }}">
+        <view class="alists-info">
+            <view class="left title"> {{ map.biaoti }} </view>
+        </view>
+        <view class="alists-info">
+            <view class="left tdown">  {{ map.addtime }} </view>
+        </view>
+        </navigator>
+        <view class="alists-info alists-btn">
+            <view class="left tdown"> </view>
+            <view class="right rdown">
+                <van-button type="danger" size="small" bindclick="removeItem" data-id="{{ map.id }}">删除</van-button>
+            </view>
+        </view>
+    </view>
+</view>
+<van-empty wx:elif="{{ !loading }}" description="没有找到相关数据" />
+<v-footer />

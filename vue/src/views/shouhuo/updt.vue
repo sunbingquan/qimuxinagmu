@@ -1,0 +1,165 @@
+<template>
+    <div class="shouhuo-add" v-loading="loading">
+        <el-card class="box-card">
+            <div slot="header" class="clearfix updt">
+                <el-page-header @back="$router.go(-1)" content="编辑收货"> </el-page-header>
+            </div>
+            <div class="form-database-form">
+                <el-form :model="form" ref="formModel" label-width="130px" status-icon validate-on-rule-change>
+                    <el-form-item v-if="isRead" label="订单号" prop="dingdanhao"> {{ form.dingdanhao }} </el-form-item>
+
+                    <el-form-item v-if="isRead" label="商品" prop="shangpin">
+                        <e-dataset-table table="fahuoshangpin" :where="{ fahuoid : $route.query.id  }" order="id desc" var="dataSets">
+                            <template v-slot="{dataSets}"
+                                ><div id="dataListshangpin" style="text-align: left">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>编号</th>
+                                                <th>名称</th>
+                                                <th>分类</th>
+                                                <th>品牌</th>
+                                                <th>图片</th>
+                                                <th>价格</th>
+                                                <th>数量</th>
+                                                <th>小计</th>
+                                                <th>购买人</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="dataMap in dataSets">
+                                                <td>{{ dataMap.bianhao }}</td>
+                                                <td>{{ dataMap.mingcheng }}</td>
+                                                <td><e-select-view module="fenlei" :value="dataMap.fenlei" select="id" show="fenleiming"></e-select-view></td>
+                                                <td>{{ dataMap.pinpai }}</td>
+                                                <td><e-img :src="dataMap.tupian" type="list" style="max-width: 120px"></e-img></td>
+                                                <td>{{ dataMap.jiage }}</td>
+                                                <td>{{ dataMap.shuliang }}</td>
+                                                <td>{{ dataMap.xiaoji }}</td>
+                                                <td>{{ dataMap.goumairen }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </template>
+                        </e-dataset-table>
+                    </el-form-item>
+
+                    <el-form-item v-if="isRead" label="收货人" prop="shouhuoren"> {{ form.shouhuoren }} </el-form-item>
+
+                    <el-form-item v-if="isRead" label="下单人" prop="xiadanren"> {{ form.xiadanren }} </el-form-item>
+
+                    <el-form-item v-if="isRead" label="快递单号" prop="kuaididanhao"> {{ form.kuaididanhao }} </el-form-item>
+
+                    <el-form-item v-if="isRead" label="快递公司" prop="kuaidigongsi"> {{ form.kuaidigongsi }} </el-form-item>
+
+                    <el-form-item v-if="btnText">
+                        <el-button type="primary" @click="submit">{{ btnText }}</el-button>
+                    </el-form-item>
+                </el-form>
+            </div>
+        </el-card>
+    </div>
+</template>
+<style type="text/scss" scoped lang="scss">
+    .shouhuo-add {
+    }
+</style>
+<script>
+    import api from "@/api";
+    import rule from "@/utils/rule";
+    import { extend } from "@/utils/extend";
+    import formUtil from "./form";
+
+    export default {
+        name: "shouhuo-add",
+        data() {
+            return {
+                readMap: {},
+                rule,
+                loading: false,
+                form: {},
+            };
+        },
+        watch: {
+            id: {
+                handler() {
+                    this.loadInfo();
+                },
+            },
+        },
+        props: {
+            isRead: {
+                type: Boolean,
+                default: true,
+            },
+            btnText: {
+                type: String,
+                default: "提交",
+            },
+            id: {
+                type: [String, Number],
+                required: true,
+            },
+        },
+
+        computed: {},
+        methods: {
+            submit() {
+                this.$refs.formModel
+                    .validate()
+                    .then((res) => {
+                        if (this.loading) return;
+                        this.loading = true;
+                        var form = this.form;
+
+                        this.$store
+                            .dispatch("shouhuo/update", form)
+                            .then((res) => {
+                                this.loading = false;
+                                if (res.code == 0) {
+                                    this.$message.success("更新成功");
+                                    this.$router.go(-1);
+                                } else {
+                                    this.$message.error(res.msg);
+                                }
+                            })
+                            .catch((err) => {
+                                this.loading = false;
+                                this.$message.error(err.message);
+                            });
+                    })
+                    .catch((err) => {
+                        console.log(err.message);
+                    });
+            },
+            loadInfo() {
+                if (this.loading) return;
+                var form = this.form;
+                this.form = formUtil.createForm();
+
+                // 更新数据,获取数据
+                this.loading = true;
+                this.$store
+                    .dispatch("shouhuo/findById", this.id)
+                    .then((res) => {
+                        this.loading = false;
+                        this.form = res;
+                        formUtil.loadInfo(res.fahuoid).then((rs) => {
+                            this.readMap = rs.readMap;
+                        });
+                    })
+                    .catch((err) => {
+                        this.loading = false;
+                        this.$message.error(err.message);
+                        this.$router.go(-1);
+                    });
+            },
+        },
+        created() {
+            this.loadInfo();
+        },
+        mounted() {},
+        destroyed() {},
+    };
+</script>

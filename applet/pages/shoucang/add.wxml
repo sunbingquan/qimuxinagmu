@@ -1,0 +1,4 @@
+<van-cell-group> </van-cell-group>
+
+<van-button type="primary" bindclick="submit" block loading="{{ loading }}" loading-text="发布中">保存</van-button>
+<v-footer />

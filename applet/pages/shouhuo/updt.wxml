@@ -1,0 +1,58 @@
+<van-nav-bar title="收货添加" left-text="返回" safe-area-inset-top="{{ false }}" left-arrow bind:click-left="goBack"> </van-nav-bar>
+
+<van-cell-group>
+    <van-cell title="订单号">
+        <view> {{ form.dingdanhao }} </view>
+    </van-cell>
+
+    <van-cell title="商品">
+        <view>
+            <e-dataset-table table="fahuo_shangpin" where="{{ { fahuoid : $route.query.id  }  }}" order="id desc" model:var="{{ dataSets }}">
+                <div id="dataListshangpin" style="text-align: left">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>编号</th>
+                                <th>名称</th>
+                                <th>分类</th>
+                                <th>品牌</th>
+                                <th>图片</th>
+                                <th>价格</th>
+                                <th>数量</th>
+                                <th>小计</th>
+                                <th>购买人</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr wx:if="{{ dataSets }}" wx:for="{{ dataSets }}" wx:for-item="dataMap">
+                                <td>{{ dataMap.bianhao }}</td>
+                                <td>{{ dataMap.mingcheng }}</td>
+                                <td><e-select-view module="fenlei" :value="dataMap.fenlei" select="id" show="fenleiming"></e-select-view></td>
+                                <td>{{ dataMap.pinpai }}</td>
+                                <td><e-img :src="dataMap.tupian" type="list" style="max-width: 120px"></e-img></td>
+                                <td>{{ dataMap.jiage }}</td>
+                                <td>{{ dataMap.shuliang }}</td>
+                                <td>{{ dataMap.xiaoji }}</td>
+                                <td>{{ dataMap.goumairen }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </e-dataset-table>
+        </view>
+    </van-cell>
+
+    <van-cell title="收货人">
+        <view> {{ form.shouhuoren }} </view>
+    </van-cell>
+
+    <van-cell title="快递单号">
+        <view> {{ form.kuaididanhao }} </view>
+    </van-cell>
+
+    <van-cell title="快递公司">
+        <view> {{ form.kuaidigongsi }} </view>
+    </van-cell>
+</van-cell-group>
+
+<van-button type="primary" bindclick="submit" block loading="{{ loading }}" loading-text="发布中">发布</van-button>

@@ -1,0 +1,38 @@
+<view class="my-bar">
+    <view class="my-box">
+        <view class="head-bar">
+            <button bindgetuserinfo="goLogin" class="userinfo-avatar" style="background-image: url({{ userInfo.avatarUrl }})" size="default"></button>
+            <view class="name-box"> {{ userInfo.nickName }} </view>
+        </view>
+    </view>
+</view>
+
+<van-grid border center="{{ true }}" clickable="{{ false }}" column-num="{{ 3 }}" :icon-size="{{ 28 }}" gutter="0" :square="{{ false }}" direction="vertical">
+    <van-grid-item icon="paid" text="购物车" url="/pages/gouwuche/list_goumairen" />
+    <van-grid-item icon="send-gift-o" text="订单" url="/pages/dingdan/list_xiadanren" />
+    <van-grid-item icon="logistics" text="物流" url="/pages/fahuo/list_xiadanren" />
+    <van-grid-item icon="records" text="签收" url="/pages/shouhuo/list_xiadanren" />
+    <van-grid-item icon="comment-o" text="评论" url="/pages/pinglun/list_pinglunren" />
+    <van-grid-item icon="star-o" text="收藏" url="/pages/shoucang/list_username" />
+</van-grid>
+
+<view style="height: 10rpx; background: #f2f2f2"></view>
+
+<van-cell-group title="">
+    <van-cell
+        icon="chat-o"
+        title="我的售后"
+        value=""
+        label=""
+        size=""
+        border="1"
+        center=""
+        clickable=""
+        arrow-direction=""
+        url="/pages/liuyanban/list_liuyanren"
+        is-link
+    ></van-cell>
+    <van-cell  icon="hotel-o" title="我的地址" value="" label="" size="" border="1" center="" clickable="" arrow-direction="" url="/pages/shouhuodizhi/list_tianjiaren" is-link></van-cell>
+    <van-cell icon="user-circle-o" title="我的资料" value="" label="" size="" border="1" center="" clickable="" arrow-direction="" url="/pages/wxuser/detail?id={{ userInfo.id }}" is-link></van-cell>
+</van-cell-group>
+<v-footer />

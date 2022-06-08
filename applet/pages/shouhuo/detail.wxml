@@ -1,0 +1,42 @@
+<view>
+    <van-cell-group>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> </view>
+            <view style="color: #999999"> </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 订单号 </view>
+            <view style="color: #999999"> {{ map.dingdanhao }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 收货人 </view>
+            <view style="color: #999999"> {{ map.shouhuoren }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 快递单号 </view>
+            <view style="color: #999999"> {{ map.kuaididanhao }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 快递公司 </view>
+            <view style="color: #999999"> {{ map.kuaidigongsi }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 收货时间 </view>
+            <view style="color: #999999"> {{ map.addtime }} </view>
+        </van-cell>
+    </van-cell-group>
+</view>
+
+<!-- <view class="commit-content">
+    <van-cell-group>
+        <van-cell title="评分">
+            <van-rate value="{{ commitRate }}" :size="25" data-name="commitRate" bindchange="onInput" color="#ffd21e" void-icon="star" void-color="#eee" />
+        </van-cell>
+        <van-field type="textarea" value="{{ commitContent }}" maxlength="80" bindinput="onInput" data-name="commitContent" placeholder="请输入评论内容..."></van-field>
+    </van-cell-group>
+    <view class="commit-btn">
+        <view> 字数：{{ commitContent.length }} / 80 </view>
+        <van-button round type="primary" bindclick="submitCommit" size="small">评论</van-button>
+    </view>
+</view> -->
+<v-footer />

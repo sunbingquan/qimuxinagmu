@@ -1,0 +1,34 @@
+<van-dropdown-menu>
+    <van-dropdown-item value="{{ search.fenlei }}" bind:change="onSelectSearch" data-name="search.fenlei" options="{{ fenleiList }}" />
+    <van-dropdown-item value="{{ search.orderby }}" bind:change="onListOrderBy" options="{{ orderOptions }}" />
+</van-dropdown-menu>
+
+<van-search
+    value="{{ search.keyword }}"
+    placeholder="请输入关键字..."
+    shape="round"
+    input-align="center"
+    bind:change="onInput"
+    data-name="search.keyword"
+    bind:search="onSearchjiaju"
+>
+</van-search>
+
+<view style="padding: 0 20rpx">
+    <van-row gutter="20">
+        <van-col wx:for="{{ lists }}" wx:for-item="v" span="24">
+            <navigator url="/pages/jiaju/detail?id={{ v.id }}">
+                <view class="photo-list">
+                    <view class="images">
+                        <e-img src="{{ v.tupian }}" />
+                    </view>
+                    <view class="title"> {{ v.mingcheng }} </view>
+                    <rich-text class="description" nodes="{{ v.xiangqing }}"></rich-text>
+                  
+                </view>
+            </navigator>
+        </van-col>
+    </van-row>
+</view>
+
+<v-footer />

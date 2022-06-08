@@ -1,0 +1,21 @@
+<view wx:if="{{ gouwuchelist.length > 0 }}">
+    <van-checkbox-group value="{{ selected }}" bindchange="onChangeSelectShop">
+        <view class="gouwushop-list" wx:for="{{ gouwuchelist }}" wx:for-item="v" wx:for-index="index">
+            <view class="gouwu-select">
+                <van-checkbox name="{{ v.id }}"></van-checkbox>
+            </view>
+            <view class="gouwu-info">
+                <van-card price="{{ v.jiage }}" title="{{ v.mingcheng }}" thumb="{{ v.tupian[0] }}" tag="{{ v.fenlei }}" desc="{{ v.pinpai }}">
+                    <view slot="num" class="van-card__num num-class">
+                        <van-stepper value="{{ v.shuliang }}" async-change bind:change="onChangeNumber" data-index="{{ index }}" />
+                    </view>
+                </van-card>
+            </view>
+        </view>
+    </van-checkbox-group>
+</view>
+<van-empty wx:elif="{{ !loading }}" description="购物车空空如也" />
+
+<van-submit-bar price="{{ shopPrice }}" button-text="生成订单" label="合计：" button-type="danger" bind:submit="onSubmitBar" disabled="{{ selected.length == 0 }}">
+    <van-checkbox value="{{ allSelect }}" bindchange="onSelectAll">{{ allSelect ? '全选' : '全不选' }}</van-checkbox>
+</van-submit-bar>

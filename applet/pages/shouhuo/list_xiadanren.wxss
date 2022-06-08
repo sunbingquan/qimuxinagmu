@@ -1,0 +1,25 @@
+.alists-list {
+  border-bottom: 10px solid #dedede;
+}
+.alists-list .alists-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #dedede;
+  font-size: 13px;
+  color: #999;
+}
+.alists-list .alists-info .left {
+  font-size: 11px;
+}
+.alists-list .alists-info .title {
+  color: #414141;
+  font-size: 16px;
+}
+.alists-list .alists-info:last-child {
+  border-bottom: none;
+}
+.alists-list:last-child {
+  border-bottom: none;
+}

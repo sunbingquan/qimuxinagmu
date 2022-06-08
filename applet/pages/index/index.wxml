@@ -1,0 +1,75 @@
+<swiper indicator-dots="{{ true }}" autoplay="{{ true }}" interval="{{ 5000 }}" style="height: calc(750rpx * 0.5)">
+    <swiper-item wx:for="{{ bhtList }}">
+        <e-img src="{{ item.image }}" pb="50"></e-img>
+    </swiper-item>
+</swiper>
+
+<van-notice-bar mode="" text="欢迎使用家电服务平台微信小程序" scrollable="1" color="#f60" background="#fff7cc" left-icon="volume-o"> </van-notice-bar>
+
+<view style="height: 10rpx; background: #f2f2f2"></view>
+
+<van-cell-group title="">
+    <van-cell icon="shop-collect-o" title="家居电器" value="" label="" size="" border="1" center="" clickable="" arrow-direction="" url="/pages/jiaju/list?fenlei=1" is-link></van-cell>
+</van-cell-group>
+
+<view class="scroll_box">
+    <scroll-view scroll-x>
+        <view class="item_list" wx:for="{{ jiajulist1 }}" wx:for-item="v">
+            <navigator url="/pages/jiaju/detail?id={{ v.id }}">
+                <view class="photo-list2">
+                    <view class="images">
+                        <e-img src="{{ v.tupian }}" />
+                    </view>
+                    <view class="title"> {{ v.mingcheng }} </view>
+                </view>
+            </navigator>
+        </view>
+    </scroll-view>
+</view>
+
+<view style="height: 10rpx; background: #f2f2f2"></view>
+
+<van-cell-group title="">
+    <van-cell icon="shop-collect-o" title="厨卫电器" value="" label="" size="" border="1" center="" clickable="" arrow-direction="" url="/pages/jiaju/list?fenlei=2" is-link></van-cell>
+</van-cell-group>
+
+
+<view class="scroll_box">
+    <scroll-view scroll-x>
+        <view class="item_list" wx:for="{{ jiajulist2 }}" wx:for-item="v">
+            <navigator url="/pages/jiaju/detail?id={{ v.id }}">
+                <view class="photo-list2">
+                    <view class="images">
+                        <e-img src="{{ v.tupian }}" />
+                    </view>
+                    <view class="title"> {{ v.mingcheng }} </view>
+                </view>
+            </navigator>
+        </view>
+    </scroll-view>
+</view>
+
+
+<view style="height: 10rpx; background: #f2f2f2"></view>
+
+<van-cell-group title="">
+    <van-cell icon="newspaper-o" title="最新资讯" value="" label="" size="" border="1" center="" clickable="" arrow-direction="" url="/pages/xinwenxinxi/list" is-link></van-cell>
+</van-cell-group>
+
+
+<view class="scroll_box">
+    <scroll-view scroll-x>
+        <view class="item_list" wx:for="{{ xinwenxinxilist3 }}" wx:for-item="v">
+            <navigator url="/pages/xinwenxinxi/detail?id={{ v.id }}">
+                <view class="photo-list2">
+                    <view class="images">
+                        <e-img src="{{ v.tupian }}" />
+                    </view>
+                    <view class="title"> {{ v.biaoti }} </view>
+                </view>
+            </navigator>
+        </view>
+    </scroll-view>
+</view>
+
+<v-footer />

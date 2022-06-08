@@ -1,0 +1,27 @@
+<van-search value="{{ fahuoKeyword }}" placeholder="输入订单号..." shape="round" input-align="center" bind:change="onInput" data-name="fahuoKeyword" bind:search="onSearchfahuo">
+</van-search>
+
+<view wx:if="{{ lists.length > 0 }}">
+    <view class="alists-list" wx:for="{{ lists }}" wx:for-item="map">
+        <navigator url="/pages/fahuo/detail?id={{ map.id }}">
+            <view class="alists-info">
+                <view class="left title"> {{ map.kuaididanhao }} </view>
+                <view class="right"> {{ map.kuaidigongsi}} </view>
+            </view>
+            <view class="alists-info">
+                <view class="left tdown"> 地址：{{ map.xiangxidizhi  }} </view>
+                <view class="right rdown"> {{ map.addtime }}  </view>
+            </view>
+        </navigator>
+        <view class="alists-info alists-btn">
+            <view class="left tdown" >
+                <van-button size="small"  wx:if="{{ map.shouhuoCount == 0 }}" type="primary" data-id="{{ map.id }}" bindclick="goUrl" data-url="/pages/shouhuo/add?id={{ map.id }}">签收</van-button>
+            </view>
+            <view class="right rdown">
+                <van-button type="danger" size="small" bindclick="removeItem" data-id="{{ map.id }}">删除</van-button>
+            </view>
+        </view>
+    </view>
+</view>
+<van-empty wx:elif="{{ !loading }}" description="没有找到相关数据" />
+<v-footer />

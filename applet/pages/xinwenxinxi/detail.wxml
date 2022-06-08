@@ -1,0 +1,30 @@
+<view class="info-wrapper">
+    <view class="container1">
+        <view class="title"> {{ map.biaoti }} </view>
+        <view>
+            <view class="time" style="float: left"> {{map.addtime}} </view>
+
+            <view style="float: right" bindtap="onShoucangChange">
+                <van-icon name="{{ is_shoucang ? 'star' : 'star-o' }}" size="20" />
+            </view>
+
+            <view style="clear: both"></view>
+        </view>
+  
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 分类 </view>
+            <view style="color: #999999"> <e-select-view module="xinwenfenlei" value="{{ map.fenlei }}" select="id" show="fenleimingcheng"></e-select-view> </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 点击率 </view>
+            <view style="color: #999999"> {{ map.dianjilv }} </view>
+        </van-cell>
+      
+        <view style="margin-top: 30rpx">
+            <rich-text nodes="{{ map.neirong }}"></rich-text>
+        </view>
+    </view>
+</view>
+
+
+<v-footer />

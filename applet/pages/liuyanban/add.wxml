@@ -1,0 +1,8 @@
+<van-cell-group>
+    <van-field type="text" label="姓名" placeholder="输入姓名" value="{{ form.xingming }}" bindinput="onInput" data-name="form.xingming" />
+    <van-field type="text" label="联系电话" placeholder="输入联系电话" value="{{ form.lianxidianhua }}" bindinput="onInput" data-name="form.lianxidianhua" />
+    <van-field type="textarea" autosize placeholder="请输入留言内容..." value="{{ form.liuyanneirong }}" data-name="form.liuyanneirong" bindinput="onInput"></van-field>
+</van-cell-group>
+
+<van-button type="primary" bindclick="submit" block loading="{{ loading }}" loading-text="发布中">保存</van-button>
+<v-footer />

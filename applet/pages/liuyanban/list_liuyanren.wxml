@@ -1,0 +1,24 @@
+<view wx:if="{{ lists.length > 0 }}">
+    <view class="alists-list" wx:for="{{ lists }}" wx:for-item="map">
+        <navigator url="/pages/liuyanban/detail?id={{ map.id }}">
+            <view class="alists-info">
+                <view class="left title"> {{ map.liuyanneirong }} </view>
+                <view class="right"> {{ map.xingming }} </view>
+            </view>
+            <view class="alists-info">
+                <view class="left tdown"> {{ map.lianxidianhua }} </view>
+            </view>
+        </navigator>
+        <view class="alists-info alists-btn">
+            <view class="left tdown"> </view>
+            <view class="right rdown">
+                <van-button type="info" wx:if="{{ map.huifuneirong == '' }}" size="small" bindclick="goEdit" data-id="{{ map.id }}">编辑</van-button>
+                <van-button type="danger" size="small" bindclick="removeItem" data-id="{{ map.id }}">删除</van-button>
+            </view>
+        </view>
+    </view>
+</view>
+
+<van-empty wx:elif="{{ !loading }}" description="没有找到相关数据" />
+<van-goods-action-button url="/pages/liuyanban/add" type="primary" text="售后反馈" />
+<v-footer />

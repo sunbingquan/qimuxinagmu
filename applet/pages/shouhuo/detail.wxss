@@ -1,0 +1,7 @@
+.commit-content .commit-btn {
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  align-items: center;
+}

@@ -1,0 +1,25 @@
+<view>
+    <van-cell-group>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 姓名 </view>
+            <view style="color: #999999"> {{ map.xingming }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 联系电话 </view>
+            <view style="color: #999999"> {{ map.lianxidianhua }} </view>
+        </van-cell>
+    </van-cell-group>
+</view>
+
+<view style="padding-bottom: 20rpx">
+    <view style="padding: 30rpx; line-height: 26px"> {{ map.liuyanneirong }} </view>
+</view>
+
+<view style="height: 10rpx; background: #f2f2f2"></view>
+
+<van-nav-bar title="" safe-area-inset-top="{{ false }}" left-text="回复内容"> </van-nav-bar>
+
+<view style="padding-bottom: 20rpx">
+    <view style="padding: 30rpx; line-height: 26px"> {{ map.huifuneirong }} </view>
+</view>
+<v-footer />

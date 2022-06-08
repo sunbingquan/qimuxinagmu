@@ -1,0 +1,31 @@
+<van-nav-bar title="购物车添加" left-text="返回" safe-area-inset-top="{{ false }}" left-arrow bind:click-left="goBack"> </van-nav-bar>
+
+<van-cell-group>
+    <van-cell title="编号">
+        <view> {{ form.bianhao }} </view>
+    </van-cell>
+
+    <van-cell title="名称">
+        <view> {{ form.mingcheng }} </view>
+    </van-cell>
+
+    <van-cell title="分类">
+        <view> <e-select-view module="fenlei" value="{{ form.fenlei }}" select="id" show="fenleiming"></e-select-view> </view>
+    </van-cell>
+
+    <van-cell title="品牌">
+        <view> {{ form.pinpai }} </view>
+    </van-cell>
+
+    <van-cell title="图片">
+        <view> <e-img src="{{ form.tupian }}" type="list" max-width="120"></e-img> </view>
+    </van-cell>
+
+    <van-cell title="价格">
+        <view> {{ form.jiage }} </view>
+    </van-cell>
+
+    <van-field type="number" label="数量" placeholder="输入数量" value="{{ form.shuliang }}" bindinput="onInput" data-name="form.shuliang" />
+</van-cell-group>
+
+<van-button type="primary" bindclick="submit" block loading="{{ loading }}" loading-text="发布中">发布</van-button>

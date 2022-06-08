@@ -1,0 +1,86 @@
+<swiper indicator-dots="{{ true }}" autoplay="{{ true }}" interval="{{ 5000 }}" style="height: calc(750rpx * 0.8)">
+    <swiper-item wx:for="{{ map.tupian }}">
+        <e-img src="{{ item }}" pb="100"></e-img>
+    </swiper-item>
+</swiper>
+
+<view class="info-wrapper">
+    <view class="container1">
+        <view class="title"> {{ map.mingcheng }} </view>
+        <view>
+            <view class="time" style="float: left"> {{map.bianhao}} </view>
+
+            <view style="float: right" bindtap="onShoucangChange">
+                <van-icon name="{{ is_shoucang ? 'star' : 'star-o' }}" size="20" />
+            </view>
+
+            <view style="clear: both"></view>
+        </view>
+        
+      
+     
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 分类 </view>
+            <view style="color: #999999"> <e-select-view module="fenlei" value="{{ map.fenlei }}" select="id" show="fenleiming"></e-select-view> </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 品牌 </view>
+            <view style="color: #999999"> {{ map.pinpai }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 价格 </view>
+            <view style="color: #999999"> {{ map.jiage }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 库存 </view>
+            <view style="color: #999999"> {{ map.kucun }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 销量 </view>
+            <view style="color: #999999"> {{ map.xiaoliang }} </view>
+        </van-cell>
+        <view style="margin-top: 30rpx">
+            <rich-text nodes="{{ map.xiangqing }}"></rich-text>
+        </view>
+    </view>
+</view>
+
+<view class="commit-content">
+    <van-cell-group>
+        <van-cell title="评分">
+            <van-rate value="{{ commitRate }}" :size="25" data-name="commitRate" bindchange="onInput" color="#ffd21e" void-icon="star" void-color="#eee" />
+        </van-cell>
+        <van-field type="textarea" value="{{ commitContent }}" maxlength="80" bindinput="onInput" data-name="commitContent" placeholder="请输入评论内容..."></van-field>
+    </van-cell-group>
+    <view class="commit-btn">
+        <view> 字数：{{ commitContent.length }} / 80 </view>
+        <van-button round type="primary" bindclick="submitCommit" size="small">评论</van-button>
+    </view>
+</view>
+
+<view class="commit-list">
+    <view wx:for="{{ commitList }}" wx:for-item="commit">
+        <view class="commit-info">
+            <view class="commit-user-headimg radius">
+                <e-img class="user-img" pb="100" src="{{ commit.headimgurl }}" />
+            </view>
+            <view class="commit-user-content">
+                <view class="commit-user-nickname">
+                    <view> {{ commit.nickname }} </view>
+                    <view>
+                        <van-rate value="{{ commit.pingfen }}" size="{{ 18 }}" color="#ffd21e" readonly void-icon="star" void-color="#eee" />
+                    </view>
+                </view>
+                <view class="commit-user-time"> {{ commit.addtime }} </view>
+                <view class="commit-content"> {{ commit.pinglunneirong }} </view>
+            </view>
+        </view>
+        <view class="commit-line-block"></view>
+    </view>
+</view>
+<view style="height: 50px;"></view>
+
+<van-goods-action safe-area-inset-bottom="{{ false }}">
+    <van-goods-action-icon icon="cart-o" url="/pages/gouwuche/list_goumairen" text="购物车" />
+    <van-goods-action-button url="/pages/gouwuche/add?id={{ map.id }}" type="warning" text="加入购物车" />
+</van-goods-action>

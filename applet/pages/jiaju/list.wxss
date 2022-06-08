@@ -1,0 +1,23 @@
+.photo-list {
+  margin-bottom: 43rpx;
+}
+.photo-list .title {
+  padding: 30rpx 16rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #747474;
+  display: -webkit-box;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;/* 这里控制行数 */
+  -webkit-box-orient: vertical;
+}
+.photo-list .description {
+  font-size: 24rpx;
+  color: #9c9c9c;
+  display: -webkit-box;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;/* 这里控制行数 */
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,54 @@
+<van-steps steps="{{ stepOptions }}" direction="horizontal" active="{{ activeSteps }}" active-color="#07c160" active-icon="checked" inactive-color="#969799"> </van-steps>
+
+<view wx:for="{{ shopLists }}" wx:for-item="v" style="margin-bottom: 5rpx">
+    <van-card
+        price="{{ v.jiage }}"
+        title="{{ v.mingcheng }}"
+        thumb="{{ v.tupian[0] }}"
+        num="{{ v.shuliang }}"
+        thumb-link="/pages//detail?id={{ v.id }}"
+        tag="{{ v.fenlei }}"
+        desc="{{ v.pinpai }}"
+    >
+    </van-card>
+</view>
+
+<view>
+    <van-cell-group>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> </view>
+            <view style="color: #999999"> </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 订单号 </view>
+            <view style="color: #999999"> {{ map.dingdanhao }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 金额 </view>
+            <view style="color: #999999"> {{ map.jine }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 状态 </view>
+            <view style="color: #999999"> {{ map.zhuangtai }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 收货人 </view>
+            <view style="color: #999999"> {{ map.shouhuoren }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 联系电话 </view>
+            <view style="color: #999999"> {{ map.lianxidianhua }} </view>
+        </van-cell>
+        <van-cell icon="" arrow-direction="right">
+            <view slot="title" style="color: #000000"> 详细地址 </view>
+            <view style="color: #999999"> {{ map.xiangxidizhi }} </view>
+        </van-cell>
+    </van-cell-group>
+</view>
+
+<view style="padding-bottom: 20rpx">
+    <view style="padding: 30rpx; line-height: 26px"> {{ map.beizhu }} </view>
+</view>
+
+<van-submit-bar price="{{ map.jine * 100 }}" button-text="立即支付" label="支付金额：" button-type="primary" bind:submit="onPaymentOrder" wx:if="{{ map.iszf == '否' }}">
+</van-submit-bar>
